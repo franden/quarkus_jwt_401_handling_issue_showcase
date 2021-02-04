@@ -9,12 +9,12 @@
 
     <servlet>
         <servlet-name>unsecured</servlet-name>
-        <servlet-class>org.acme.servlet.UnsecuredServlet</servlet-class>
+        <servlet-class>org.acme.servlet.boundary.UnsecuredServlet</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>secured</servlet-name>
-        <servlet-class>org.acme.servlet.SecuredServlet</servlet-class>
+        <servlet-class>org.acme.servlet.boundary.SecuredServlet</servlet-class>
     </servlet>
 
     <filter-mapping>

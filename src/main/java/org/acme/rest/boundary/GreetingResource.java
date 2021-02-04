@@ -1,4 +1,4 @@
-package org.acme;
+package org.acme.rest.boundary;
 
 import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;

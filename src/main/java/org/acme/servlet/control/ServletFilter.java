@@ -1,4 +1,4 @@
-package org.acme;
+package org.acme.servlet.control;
 
 import java.io.IOException;
 import javax.servlet.Filter;

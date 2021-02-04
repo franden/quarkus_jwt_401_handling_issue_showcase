@@ -1,4 +1,4 @@
-package org.acme;
+package org.acme.rest.control;
 
 import io.quarkus.security.UnauthorizedException;
 import javax.annotation.Priority;
@@ -8,7 +8,7 @@ import javax.ws.rs.ext.Provider;
 
 @Provider
 @Priority(1)
-public class CustomExceptionMapper implements ExceptionMapper<UnauthorizedException> {
+public class UnauthorizedExceptionMapper implements ExceptionMapper<UnauthorizedException> {
 
     @Override
     public Response toResponse(io.quarkus.security.UnauthorizedException e) {
