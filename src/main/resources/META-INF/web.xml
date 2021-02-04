@@ -17,6 +17,11 @@
         <servlet-class>org.acme.servlet.SecuredServlet</servlet-class>
     </servlet>
 
+    <filter-mapping>
+        <filter-name>ServletFilter</filter-name>
+        <url-pattern>/servlet/*</url-pattern>
+    </filter-mapping>
+
     <servlet-mapping>
         <servlet-name>secured</servlet-name>
         <url-pattern>/servlet/secured/*</url-pattern>
