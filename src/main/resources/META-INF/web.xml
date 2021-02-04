@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                        http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    version="3.0">
+
+    <display-name>HelloWorld ff4j app</display-name>
+
+    <servlet>
+        <servlet-name>unsecured</servlet-name>
+        <servlet-class>org.acme.servlet.UnsecuredServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>secured</servlet-name>
+        <servlet-class>org.acme.servlet.SecuredServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>secured</servlet-name>
+        <url-pattern>/servlet/secured/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>unsecured</servlet-name>
+        <url-pattern>/servlet/unsecured/*</url-pattern>
+    </servlet-mapping>
+    <security-constraint>
+        <display-name>SecurityConstraint</display-name>
+        <web-resource-collection>
+            <web-resource-name>secured</web-resource-name>
+            <url-pattern>/servlet/secured/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>tech_app_management_read</role-name>
+            <role-name>tech_app_management_write</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-role>
+        <role-name>tech_app_management_read</role-name>
+    </security-role>
+    <security-role>
+        <role-name>tech_app_management_write</role-name>
+    </security-role>
+
+    <error-page>
+        <error-code>401</error-code>
+        <location>/401.html</location>
+    </error-page>
+    <error-page>
+        <exception-type>io.quarkus.security.UnauthorizedException</exception-type>
+        <location>/401.html</location>
+    </error-page>
+</web-app>
