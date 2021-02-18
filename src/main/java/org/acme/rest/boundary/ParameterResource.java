@@ -16,6 +16,9 @@ public class ParameterResource {
 
     public static final String QUERY_PARAMETER = "queryParameter";
     public static final String PATH_PARAMETER = "pathParameter";
+    public static final String CLASS_QUERY_PARAMETER = "classQueryParameter";
+    public static final String CLASS_PATH_PARAMETER = "classPathParameter";
+    public static final String METHOD_QUERY_PARAMETER = "methodQueryParameter";
 
     @QueryParam(QUERY_PARAMETER)
     String classQueryParameter;
@@ -29,11 +32,11 @@ public class ParameterResource {
     public String getParameter(
         @QueryParam(QUERY_PARAMETER) String methodQueryParameter,
         @PathParam(PATH_PARAMETER) String methodPathParameter) {
-        System.out.println("getParameter called");
+        System.out.println("getParameter called"); 
         return Json.createObjectBuilder()
-            .add("classQueryParameter", firstNotNull(classQueryParameter, ""))
-            .add("classPathParameter", firstNotNull(classPathParameter, ""))
-            .add("methodQueryParameter", firstNotNull(methodQueryParameter, ""))
+            .add(CLASS_QUERY_PARAMETER, firstNotNull(classQueryParameter, ""))
+            .add(CLASS_PATH_PARAMETER, firstNotNull(classPathParameter, ""))
+            .add(METHOD_QUERY_PARAMETER, firstNotNull(methodQueryParameter, ""))
             .add("methodPathParameter", firstNotNull(methodPathParameter, ""))
             .build().toString();
 
