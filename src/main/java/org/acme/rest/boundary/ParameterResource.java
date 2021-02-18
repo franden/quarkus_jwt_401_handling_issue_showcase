@@ -1,5 +1,7 @@
 package org.acme.rest.boundary;
 
+import static org.acme.rest.control.JsonUtils.firstNotNull;
+
 import javax.enterprise.context.Dependent;
 import javax.json.Json;
 import javax.ws.rs.GET;
@@ -37,11 +39,5 @@ public class ParameterResource {
 
     }
 
-    <T> T firstNotNull(T first, T second) {
-        if (first == null) {
-            return second;
-        } else {
-            return first;
-        }
-    }
+
 }
